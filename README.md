@@ -1,2 +1,2 @@
 # prismagram
-Instagram clone width  Express + Prisma + React and React Native
+Instagram clone with  Express + Prisma + React and React Native
