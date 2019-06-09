@@ -1,23 +1,23 @@
 import React from 'react';
+import Router from './Router'
+import { gql } from "apollo-boost";
+import { useQuery } from 'react-apollo-hooks';
 
-function App() {
+const QUERY = gql`
+  {
+    isLoggedIn @client
+  }
+`;
+
+export default () => {
+  const {
+    data: { isLoggedIn }
+  } = useQuery(QUERY);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.sdfsdff
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router isLoggedIn={isLoggedIn} />
     </div>
   );
+  
 }
-
-export default App;
